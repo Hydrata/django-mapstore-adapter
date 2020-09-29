@@ -406,6 +406,8 @@ class GeoNodeMapStore2ConfigConverter(BaseMapStore2ConfigConverter):
                             featureInfo = {'format': 'TEMPLATE'}
                             featureInfo['template'] = layer['ftInfoTemplate']
                             overlay['featureInfo'] = featureInfo
+                        elif 'featureInfo' in layer and layer['featureInfo']:
+                            overlay['featureInfo'] = layer['featureInfo']
                         elif 'getFeatureInfo' in layer and layer['getFeatureInfo']:
                             if 'fields' in layer['getFeatureInfo'] and layer['getFeatureInfo']['fields'] and \
                                     'propertyNames' in layer['getFeatureInfo'] and \
