@@ -296,7 +296,8 @@ class GeoNodeMapStore2ConfigConverter(BaseMapStore2ConfigConverter):
                         overlay['hideLoading'] = layer['hideLoading'] if 'hideLoading' in layer else False
                         overlay['useForElevation'] = layer['useForElevation'] if 'useForElevation' in layer else False
                         overlay['fixed'] = layer['fixed'] if 'fixed' in layer else False
-                        overlay['opacity'] = layer['opacity'] if 'opacity' in layer else 1.0
+                        if layer['opacity']:
+                            overlay['opacity'] = layer['opacity'] if 'opacity' in layer else 1.0
                         overlay['title'] = layer['title'] if 'title' in layer else ''
                         overlay['name'] = layer['name'] if 'name' in layer else ''
                         overlay['store'] = layer['store'] if 'store' in layer else ''
